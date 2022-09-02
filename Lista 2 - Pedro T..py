@@ -79,7 +79,12 @@ Completando com zeros até que A possua a dimensão kxk.
 '''
 
 def expandir(A):
-	return A
+    m, n = A.shape
+    k = max(m, n)
+    # Adiciona k-m linhas de zeros abaixo e k-n colunas à direita
+    return np.pad(A, ((0, k - m), (0, k - n)))
+
+# print(expandir(np.array([[1,2],[3,4],[5,6],[7,8]])))
 
 '''
 ===================================================================
