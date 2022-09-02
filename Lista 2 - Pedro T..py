@@ -112,7 +112,12 @@ tamanho de A e B.
 '''
 
 def AB_igual_BA(A,B):
-	return
+    if A.shape != B.shape:
+        return False
+    
+    return np.array_equal(np.matmul(A, B), np.matmul(B, A))
+
+# print(AB_igual_BA(np.array([[1,2],[3,5]]), np.array([[1,2],[3,4]])))
 
 '''
 ===================================================================
