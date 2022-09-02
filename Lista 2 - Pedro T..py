@@ -131,7 +131,9 @@ https://cs.stanford.edu/people/nick/py/python-map-lambda.html
 '''
 
 def menorNorma(l):
-	return
+	return min(l, key = np.linalg.norm)
+
+# print(menorNorma([np.array([1,2]),np.array([3,4]),np.array([5,6]),np.array([7,8])]))
 
 '''
 ===================================================================
