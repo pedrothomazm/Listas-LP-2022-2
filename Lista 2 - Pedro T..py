@@ -163,4 +163,14 @@ https://pt.wikipedia.org/wiki/M%C3%A9todo_de_Monte_Carlo
 '''
 
 def piMonteCarlo(n):
-	return
+    rng = default_rng()
+
+    # Gera n pontos aleatórios com coordenadas de -1 a 1
+    pontos = rng.uniform(-1, 1, (n, 2))
+
+    # Calcula quantos pontos estão dentro do círculo
+    pontos_dentro = np.count_nonzero(np.linalg.norm(pontos, axis = 1) < 1)
+    
+    return 4 * pontos_dentro / n
+
+# print(piMonteCarlo(31415))
