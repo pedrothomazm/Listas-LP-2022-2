@@ -1,3 +1,5 @@
+import numpy as np
+
 '''
 ===================================================================
 1 - Crie uma função usando numpy que caso receba uma matriz 
@@ -8,7 +10,17 @@ elementos do vetor. Caso contrário levante uma exceção ValueError.
 ''' 
 
 def diagonalEspecial(D):
-	return
+    n_dim = len(D.shape)
+
+    if n_dim == 1:
+        return np.diag(D)
+    
+    if n_dim == 2:
+        return D.flatten()
+    
+    raise ValueError('A entrada deve ser unidimensional ou bidimensional.')
+
+# print(diagonalEspecial(np.array([[1,2,3,4,5],[6,7,8,9,0]])))
 
 '''
 ===================================================================
