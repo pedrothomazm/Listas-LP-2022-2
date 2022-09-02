@@ -1,4 +1,5 @@
 import numpy as np
+from numpy.random import default_rng
 
 '''
 ===================================================================
@@ -36,7 +37,38 @@ que cada evento aconteceu (ex: {'papel':1,'pedra':3,'tesoura':2})
 '''
 
 def jokenpo(n):
-	return
+    rng = default_rng()
+
+    valores, contagem = np.unique(rng.integers(0, 3, n), return_counts=True)
+
+    for i in range(3):
+        if valores.size <= i or valores[i] != i:
+            valores = np.insert(valores, i, i)
+            contagem = np.insert(contagem, i, 0)
+    
+    jogadas = ['papel', 'pedra', 'tesoura']
+    
+    return dict(zip(jogadas, contagem))
+
+    # # Solução alternativa cuja distribuição é menos uniforme:
+    # # Gera 2 inteiros de 0 a n
+    # random_nums = rng.integers(0, n, 2, endpoint=True)
+
+    # # Insere 0 e n à lista
+    # random_nums = np.insert(random_nums, [0, 2], [0, n])
+
+    # # Ordena
+    # random_nums.sort()
+
+    # # Obtém uma lista das diferenças dos valores adjacentes
+    # # Essa lista é composta de inteiros aleatórios não negativos cuja soma é n
+    # random_counts = np.ediff1d(random_nums)
+
+    # jogadas = ['papel', 'pedra', 'tesoura']
+
+    # return dict(zip(jogadas, random_counts))
+
+# print(jokenpo(10))
 
 '''
 ===================================================================
