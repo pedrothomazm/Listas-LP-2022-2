@@ -95,7 +95,10 @@ corresponde ao menor valor da linha i.
 '''
 
 def minimos(A):
-	return 
+    # Obtém os mínimos de cada linha e transforma o resultado em vetor coluna
+	return A.min(1).reshape(A.shape[0], 1)
+
+# print(minimos(np.array([[1,2],[3,4],[5,6],[7,8]])))
 
 '''
 ===================================================================
