@@ -11,12 +11,10 @@ elementos do vetor. Caso contrário levante uma exceção ValueError.
 ''' 
 
 def diagonalEspecial(D):
-    n_dim = len(D.shape)
-
-    if n_dim == 1:
+    if D.ndim == 1:
         return np.diag(D)
     
-    if n_dim == 2:
+    if D.ndim == 2:
         return D.flatten()
     
     raise ValueError('A entrada deve ser unidimensional ou bidimensional.')
