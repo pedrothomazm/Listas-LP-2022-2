@@ -37,16 +37,17 @@ que cada evento aconteceu (ex: {'papel':1,'pedra':3,'tesoura':2})
 def jokenpo(n):
     rng = default_rng()
 
-    valores, contagem = np.unique(rng.integers(0, 3, n), return_counts=True)
+    # Gera n inteiros de 0 a 2
+    eventos = rng.integers(0, 3, n)
+    valores, contagem = np.unique(eventos, return_counts=True)
+    resultado = dict(zip(valores, contagem))
 
-    for i in range(3):
-        if valores.size <= i or valores[i] != i:
-            valores = np.insert(valores, i, i)
-            contagem = np.insert(contagem, i, 0)
+    # Remove as chaves numéricas e armazena nas novas chaves, com 0 como default
+    resultado['papel'] = resultado.pop(0, 0)
+    resultado['pedra'] = resultado.pop(1, 0)
+    resultado['tesoura'] = resultado.pop(2, 0)
     
-    jogadas = ['papel', 'pedra', 'tesoura']
-    
-    return dict(zip(jogadas, contagem))
+    return resultado
 
     # # Solução alternativa cuja distribuição é menos uniforme:
     # # Gera 2 inteiros de 0 a n
