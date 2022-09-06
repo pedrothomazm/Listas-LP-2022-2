@@ -83,7 +83,10 @@ menor que 7 mas maior que 5.
 '''
 
 def recuperacao(array):
-	return 
+    medias = array.mean(axis=1)
+    return (medias < 7) & (medias > 5)
+
+# print(recuperacao(np.array([[5,6,7],[7,8,9],[1,2,3],[6,7,8]])))
 
 '''
 ===================================================================
