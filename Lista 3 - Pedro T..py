@@ -1,3 +1,6 @@
+import numpy as np
+from numpy.random import default_rng
+
 '''
 ===================================================================
 1 - Usando apenas o conceito de "máscaras" (usar uma array de boo-
@@ -10,7 +13,20 @@ nimo, 0.
 ''' 
 
 def normalComLimite(m,n):
-	return
+    rng = default_rng()
+    dist_normal = rng.normal(7, 2, (m, n))
+
+    while True:
+        fora_do_limite = (dist_normal > 10) | (dist_normal < 0)
+        num_fora_lim = np.count_nonzero(fora_do_limite)
+
+        if num_fora_lim == 0:
+            return dist_normal
+
+        # Gera novos números para substituir aqueles fora do limite
+        dist_normal[fora_do_limite] = rng.normal(7, 2, num_fora_lim)
+
+# print(normalComLimite(5,5))
 
 '''
 ===================================================================
