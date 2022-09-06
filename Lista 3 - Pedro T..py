@@ -43,7 +43,16 @@ e False caso contrário.
 '''
 
 def alunosAprovados(notas):
-	return
+    # Obtém metade do número de colunas (provas)
+    min_aprovacao = notas.shape[1] / 2
+
+    acima_de_7 = notas > 7
+    count_acima_7 = np.count_nonzero(acima_de_7, axis=1)
+    
+    alunos_aprovados = count_acima_7 >= min_aprovacao
+    return alunos_aprovados.reshape(-1, 1)
+
+# print(alunosAprovados(np.array([[8,9,1],[1,2,1],[1,2,1],[1,2,9],[10,10,10]])))
 
 
 '''
