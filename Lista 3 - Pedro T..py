@@ -74,6 +74,8 @@ e retorne uma array 1xn que é a "normalização Z-score" dela.
 def normalizarZScore(array):
     media = array.mean()
     desvio_padrao = array.std()
+
+    # Array de cada elemento subtraído pela média e dividido pelo desvio padrão
     return (array - media) / desvio_padrao
 
 # print(normalizarZScore(np.array([0,1,2,3,4,5,6,7,8,9,10])))
