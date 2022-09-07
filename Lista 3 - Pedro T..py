@@ -50,10 +50,14 @@ def alunosAprovados(notas):
     # Obtém metade do número de colunas (provas)
     min_aprovacao = notas.shape[1] / 2
 
+    # Obtém um array de booleanos indicando notas acima de 7
     acima_de_7 = notas > 7
+
+    # Obtém o número de notas acima de 7 por linha
     count_acima_7 = np.count_nonzero(acima_de_7, axis=1)
-    
     alunos_aprovados = count_acima_7 >= min_aprovacao
+
+    # Altera o formato para ter apenas uma coluna
     return alunos_aprovados.reshape(-1, 1)
 
 # print(alunosAprovados(np.array([[8,9,1],[1,2,1],[1,2,1],[1,2,9],[10,10,10]])))
