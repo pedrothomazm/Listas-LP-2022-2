@@ -99,5 +99,12 @@ loops. Tente pesquisar sobre a função "vectorize" do numpy.
 ===================================================================
 '''
 
-def fatorialArray(array):
-	return
+def fatorial(num):
+    if num <= 1:
+        return 1
+    return num * fatorial(num - 1)
+
+# Gera uma função que aplica fatorial(num) a cada elemento de um array
+fatorialArray = np.vectorize(fatorial)
+
+# print(fatorialArray(np.array([[1,2,3],[4,5,6],[7,8,9]])))
