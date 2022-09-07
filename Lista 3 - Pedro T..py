@@ -7,6 +7,7 @@ from numpy.random import default_rng
 leanas para selecionar elementos de outra array), crie uma função
 que receba um argumento m e n e retorne uma array mxn com valores
 gerados aleatoriamente.
+
 Você deve gerar uma array com uma distribuição normal de média 7 
 e desvio padrão 2, e após disso, você deve implementar um limite
 de valores: os elementos da array devem ser, no máximo, 10, e no mí-
@@ -16,9 +17,12 @@ nimo, 0.
 
 def normalComLimite(m,n):
     rng = default_rng()
+
+    # Array m x n com uma distribuição normal de média 7 e desvio padrão 2
     dist_normal = rng.normal(7, 2, (m, n))
 
     while True:
+        # Array de booleanos indicando elementos fora dos limites
         fora_do_limite = (dist_normal > 10) | (dist_normal < 0)
         num_fora_lim = np.count_nonzero(fora_do_limite)
 
