@@ -93,8 +93,14 @@ menor que 7 mas maior que 5.
 '''
 
 def recuperacao(array):
+    # Obtém a média de cada linha
     medias = array.mean(axis=1)
-    return (medias < 7) & (medias > 5)
+
+    # Obtém um array de booleanos indicando os alunos de recuperação
+    recup = (medias < 7) & (medias > 5)
+
+    # Altera o formato para ter apenas uma coluna
+    return recup.reshape(-1, 1)
 
 # print(recuperacao(np.array([[5,6,7],[7,8,9],[1,2,3],[6,7,8]])))
 
