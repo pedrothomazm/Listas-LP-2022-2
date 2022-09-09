@@ -139,3 +139,33 @@ def notas_rng(n):
     
     # Gera n notas aleatórias de 1 a 5
     return rng.uniform(1, 5, n)
+
+
+def junta_notas(notas_criticos, notas_clientes):
+    try:
+        # Os parâmetros devem ser NumPy Arrays
+        if (not isinstance(notas_criticos, np.ndarray) or
+            not isinstance(notas_clientes, np.ndarray)):
+
+            raise TypeError('Os parâmetros devem ser NumPy Arrays')
+        
+        # Os parâmetros devem ter dados do tipo flutuante
+        if (not issubclass(notas_criticos.dtype.type, np.floating) or
+            not issubclass(notas_clientes.dtype.type, np.floating)):
+            
+            raise TypeError('Os Arrays devem conter dados do tipo flutuante')
+        
+        # Os parâmetros devem ter o mesmo tamanho
+        if notas_criticos.size != notas_clientes.size:
+            raise ValueError('Os Arrays devem ter o mesmo tamanho')
+
+    except Exception as error:
+        return error
+    
+    # Empilha os Arrays
+    notas = np.vstack((notas_criticos.flatten(), notas_clientes.flatten()))
+
+    # Multiplica as notas dos críticos
+    notas[0] = np.multiply(notas[0], 3)
+
+    return notas
