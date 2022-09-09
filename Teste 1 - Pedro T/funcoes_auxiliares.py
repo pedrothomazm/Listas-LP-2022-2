@@ -90,3 +90,32 @@ def ndarray_is_in_fibonacci(array):
 
     # Verifica se cada elemento está na sequência
     return np.isin(array, fib_0_to_1000)
+
+
+def tabela_price(val_presente, taxa_juros, periodo):
+    # Valor auxiliar usado no cálculo do valor da parcela
+    val_auxiliar = (1 + taxa_juros) ** periodo
+
+    # Cálculo do valor da parcela de acordo com a fórmula
+    val_parcela = val_presente * val_auxiliar * taxa_juros / (val_auxiliar - 1)
+
+    # Arredonda com duas casas decimais
+    val_parcela = np.around(val_parcela, 2)
+
+    tabela = []
+
+    for i in range(periodo):
+        # Calcula juros pagos no mês
+        juros_pagos = np.around(val_presente * taxa_juros, 2)
+
+        # Calcula a amortização no mês
+        amortizacao = val_parcela - juros_pagos
+
+        # Calcula o valor da dívida no mês
+        val_presente -= amortizacao
+
+        coluna = [val_presente, amortizacao, juros_pagos]
+        tabela.append(coluna)
+    
+    # Transforma em NumPy Array e muda o formato
+    return np.array(tabela).T
