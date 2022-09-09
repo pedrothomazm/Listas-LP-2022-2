@@ -22,3 +22,27 @@ def fibonacci_at(n):
         elem_a, elem_b = elem_b, elem_a + elem_b
     
     return elem_a
+
+
+def fibonacci_less_than(n):
+    try:
+        # O parâmetro precisa ser inteiro
+        if not isinstance(n, int):
+            raise TypeError('O parâmetro deve ser inteiro')
+    
+    except Exception as error:
+        return error
+
+    fib_less = []
+
+    elem_a = 0
+    elem_b = 1
+
+    while elem_a < n:
+        fib_less.append(elem_a)
+
+        # O próximo elemento é a soma dos anteriores
+        elem_a, elem_b = elem_b, elem_a + elem_b
+    
+    # Retorna um NumPy Array
+    return np.array(fib_less)
