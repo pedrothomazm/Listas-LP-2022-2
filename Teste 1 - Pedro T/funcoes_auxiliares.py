@@ -152,7 +152,7 @@ def junta_notas(notas_criticos, notas_clientes):
         # Os parâmetros devem ter dados do tipo flutuante
         if (not issubclass(notas_criticos.dtype.type, np.floating) or
             not issubclass(notas_clientes.dtype.type, np.floating)):
-            
+
             raise TypeError('Os Arrays devem conter dados do tipo flutuante')
         
         # Os parâmetros devem ter o mesmo tamanho
@@ -169,3 +169,15 @@ def junta_notas(notas_criticos, notas_clientes):
     notas[0] = np.multiply(notas[0], 3)
 
     return notas
+
+
+def metas_e_stats(array):
+    # Metadados
+    print('dtype:', array.dtype)
+    print('shape:', array.shape)
+    print('flags:\n', array.flags, sep='')
+
+    # Informações estatísticas
+    print('Média:', array.mean())
+    print('Desvio padrão:', array.std())
+    print('Variância:', array.var())
