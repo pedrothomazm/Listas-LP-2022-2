@@ -1,4 +1,5 @@
 import numpy as np
+from numpy.random import default_rng
 
 
 def fibonacci_at(n):
@@ -119,3 +120,22 @@ def tabela_price(val_presente, taxa_juros, periodo):
     
     # Transforma em NumPy Array e muda o formato
     return np.array(tabela).T
+
+
+def notas_rng(n):
+    try:
+        # O parâmetro precisa ser inteiro
+        if not isinstance(n, int):
+            raise TypeError('O parâmetro deve ser inteiro')
+        
+        # O parâmetro não pode ser negativo
+        if n < 0:
+            raise ValueError('O parâmetro não pode ser negativo')
+    
+    except Exception as error:
+        return error
+    
+    rng = default_rng()
+    
+    # Gera n notas aleatórias de 1 a 5
+    return rng.uniform(1, 5, n)
