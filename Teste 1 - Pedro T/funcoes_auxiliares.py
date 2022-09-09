@@ -46,3 +46,23 @@ def fibonacci_less_than(n):
     
     # Retorna um NumPy Array
     return np.array(fib_less)
+
+
+def is_in_fibonacci(n):
+    try:
+        # O parâmetro precisa ser inteiro
+        if not isinstance(n, int):
+            raise TypeError('O parâmetro deve ser inteiro')
+    
+    except Exception as error:
+        return error
+    
+    elem_a = 0
+    elem_b = 1
+
+    # Itera até encontrar o menor elemento maior ou igual a n
+    while elem_a < n:
+        # O próximo elemento é a soma dos anteriores
+        elem_a, elem_b = elem_b, elem_a + elem_b
+    
+    return n == elem_a
