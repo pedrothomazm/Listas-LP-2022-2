@@ -123,6 +123,6 @@ def fatorial(num):
     return num * fatorial(num - 1)
 
 # Gera uma função que aplica fatorial(num) a cada elemento de um array
-fatorialArray = np.vectorize(fatorial)
+fatorialArray = np.vectorize(fatorial, otypes=[object])
 
-# print(fatorialArray(np.array([[1,2,3],[4,5,6],[7,8,9]])))
+# print(fatorialArray(np.array([[1,2,3],[4,5,6],[7,8,200]])))
