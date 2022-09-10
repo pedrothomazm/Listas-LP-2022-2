@@ -52,6 +52,8 @@ def alunosAprovados(notas):
 
     # Obtém um array de booleanos indicando notas acima de 7
     acima_de_7 = notas > 7
+    maior_que_7 = notas[acima_de_7]
+    acima_de_7 = np.isin(notas, maior_que_7)
 
     # Obtém o número de notas acima de 7 por linha
     count_acima_7 = np.count_nonzero(acima_de_7, axis=1)
