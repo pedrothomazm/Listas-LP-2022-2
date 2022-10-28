@@ -9,6 +9,13 @@ class MyTestCase(unittest.TestCase):
         # Must raise ValueError
         self.assertRaises(ValueError, calc.divide, dividend, divisor)
 
+    def test_two_plus_two(self):
+        a = 2
+        b = 2
+        result = calc.add(a, b)
+        # Two plus two must make four
+        self.assertEqual(result, 4)
+
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)
