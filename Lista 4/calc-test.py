@@ -1,3 +1,4 @@
+import math
 import unittest
 import calc
 
@@ -15,6 +16,21 @@ class MyTestCase(unittest.TestCase):
         result = calc.add(a, b)
         # Two plus two must make four
         self.assertEqual(result, 4)
+
+    def test_exp_of_sqr_root(self):
+        number = 2
+
+        sqr_root_exp = 1 / 2
+        sqr_root = calc.exp(sqr_root_exp, number)
+
+        sqr_exp = 2
+        sqr_of_sqr_root = calc.exp(sqr_exp, sqr_root)
+
+        # sqr_root must be the square root of the original number
+        self.assertAlmostEqual(sqr_root, math.sqrt(number))
+
+        # The square of the square root must be the original number
+        self.assertAlmostEqual(sqr_of_sqr_root, number)
 
 
 if __name__ == "__main__":
