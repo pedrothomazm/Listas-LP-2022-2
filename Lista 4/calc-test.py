@@ -8,7 +8,8 @@ class MyTestCase(unittest.TestCase):
         dividend = 1
         divisor = 0
         # Must raise ValueError
-        self.assertRaises(ValueError, calc.divide, dividend, divisor)
+        with self.assertRaises(ValueError):
+            calc.divide(dividend, divisor)
 
     def test_two_plus_two(self):
         a = 2
