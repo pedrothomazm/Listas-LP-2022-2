@@ -68,6 +68,13 @@ class MyTestCase(unittest.TestCase):
         # -2 - (-5) = 3
         self.assertEqual(result, 3)
 
+    def test_multiply_positive_negative(self):
+        a = 3
+        b = -7
+        result = calc.multiply(a, b)
+        # 3 * (-7) = -21
+        self.assertEqual(result, -21)
+
     def test_exp_of_sqr_root(self):
         number = 2
 
