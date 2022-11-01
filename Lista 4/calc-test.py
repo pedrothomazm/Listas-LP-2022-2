@@ -1,5 +1,6 @@
 import math
 import unittest
+
 import calc
 
 
@@ -10,6 +11,13 @@ class MyTestCase(unittest.TestCase):
         # Must raise ValueError
         with self.assertRaises(ValueError):
             calc.divide(dividend, divisor)
+    
+    def test_two_divided_by_two(self):
+        dividend = 2
+        divisor = 2
+        result = calc.divide(dividend, divisor)
+        # 2 / 2 = 1
+        self.assertEqual(result, 1)
 
     def test_two_plus_two(self):
         a = 2
