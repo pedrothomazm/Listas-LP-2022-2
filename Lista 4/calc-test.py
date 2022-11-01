@@ -88,6 +88,13 @@ class MyTestCase(unittest.TestCase):
         result = calc.multiply(a, b)
         # 999 * 0 = 0
         self.assertEqual(result, 0)
+    
+    def test_exp_natural_numbers(self):
+        a = 3
+        b = 4
+        result = calc.exp(a, b)
+        # 4 ^ 3 = 64
+        self.assertEqual(result, 64)
 
     def test_exp_of_sqr_root(self):
         number = 2
