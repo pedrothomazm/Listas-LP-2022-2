@@ -33,6 +33,13 @@ class MyTestCase(unittest.TestCase):
         # Two plus two must make four
         self.assertEqual(result, 4)
 
+    def test_negative_plus_negative(self):
+        a = -2
+        b = -1
+        result = calc.add(a, b)
+        # -2 + (-1) = -3
+        self.assertEqual(result, -3)
+
     def test_exp_of_sqr_root(self):
         number = 2
 
