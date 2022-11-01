@@ -82,6 +82,13 @@ class MyTestCase(unittest.TestCase):
         # (-2) * (-5) = 10
         self.assertEqual(result, 10)
 
+    def test_multiply_zero(self):
+        a = 999
+        b = 0
+        result = calc.multiply(a, b)
+        # 999 * 0 = 0
+        self.assertEqual(result, 0)
+
     def test_exp_of_sqr_root(self):
         number = 2
 
