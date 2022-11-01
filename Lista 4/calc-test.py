@@ -18,6 +18,13 @@ class MyTestCase(unittest.TestCase):
         result = calc.divide(dividend, divisor)
         # 2 / 2 = 1
         self.assertEqual(result, 1)
+    
+    def test_one_divided_by_half(self):
+        dividend = 1
+        divisor = 0.5
+        result = calc.divide(dividend, divisor)
+        # 1 / 0.5 = 2
+        self.assertEqual(result, 2)
 
     def test_two_plus_two(self):
         a = 2
