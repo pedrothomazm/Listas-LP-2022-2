@@ -95,6 +95,13 @@ class MyTestCase(unittest.TestCase):
         result = calc.exp(a, b)
         # 4 ^ 3 = 64
         self.assertEqual(result, 64)
+    
+    def test_exp_negative_numbers(self):
+        a = -4
+        b = -2
+        result = calc.exp(a, b)
+        # (-2) ^ (-4) = 1/16
+        self.assertEqual(result, 1/16)
 
     def test_exp_of_sqr_root(self):
         number = 2
